@@ -15,6 +15,7 @@
 <script src="lesson1.js"></script>
 <script src="MenuItem.js"></script>
 <script src="Menu.js"></script>
+<script src="SubMenu.js"></script>
 <script>
     window.onload = () => {
         let block = document.getElementById('mymenu');
@@ -24,18 +25,18 @@
             new MenuItem('/about', 'About'),
             new MenuItem('/blog', 'Blog'),
             new MenuItem('/contacts', 'Contacts'),
-            new MenuItem('/services', 'Services')
-            // new SubMenu('/services', 'Services', [
-            //     new MenuItem('/about', 'About'),
-            //     new MenuItem('/blog', 'Blog'),
-            //     new MenuItem('/contacts', 'Contacts'),
-            // ])
+            new MenuItem('/services', 'Services'),
+            new SubMenu('mySub', 'mySub', [
+                new MenuItem('/about', 'About'),
+                new MenuItem('/blog', 'Blog'),
+                new MenuItem('/contacts', 'Contacts'),
+            ])
         ]);
         console.log(menu);
         block.innerHTML = menu.render();
 
         let button = document.getElementById('del-btn');
-        button.addEventListener('click', () => menu.removeElem(block))
+        button.addEventListener('click', () => Menu.removeElem(block))
     };
 </script>
 </body>
