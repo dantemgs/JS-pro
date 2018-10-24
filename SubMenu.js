@@ -1,0 +1,3 @@
+class SubMenu extends Menu{
+
+}
