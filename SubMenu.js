@@ -1,3 +1,3 @@
-class SubMenu extends Menu{
+class SubMenu extends Menu {
 
 }
