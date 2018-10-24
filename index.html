@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #del-btn {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="mymenu"></div>
+<button id="del-btn">Удалить меню</button>
+<script src="lesson1.js"></script>
+<script src="MenuItem.js"></script>
+<script src="Menu.js"></script>
+<script src="SubMenu.js"></script>
+<script>
+    window.onload = () => {
+        let block = document.getElementById('mymenu');
+
+        let menu = new Menu('my', 'my', [
+            new MenuItem('/', 'Home'),
+            new MenuItem('/about', 'About'),
+            new MenuItem('/blog', 'Blog'),
+            new MenuItem('/contacts', 'Contacts'),
+            new MenuItem('/services', 'Services'),
+            new SubMenu('mySub', 'mySub', [
+                new MenuItem('/about', 'About'),
+                new MenuItem('/blog', 'Blog'),
+                new MenuItem('/contacts', 'Contacts'),
+            ])
+        ]);
+        console.log(menu);
+        block.innerHTML = menu.render();
+
+        let button = document.getElementById('del-btn');
+        button.addEventListener('click', () => Menu.removeElem(block))
+    };
+</script>
+</body>
+</html>
