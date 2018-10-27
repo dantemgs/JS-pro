@@ -54,6 +54,37 @@
         console.log(menu);
         block.innerHTML = menu.render();
     }
+
+    // window.onload = () => {
+    //     let block = document.querySelector('navigator');
+    //
+    //     let getData = new Promise((resolve, reject) => {
+    //         fetch('menu.json')
+    //             .then(result => result.json())
+    //             .then(data => resolve(data));
+    //     });
+    //
+    //     async function getDataAW() {
+    //         let data = await getData;
+    //         console.log(data);
+    //
+    //         let column = data.SubMenu.link.length;
+    //         let rows = data.MenuItems.link.length;
+    //         console.log(column);
+    //         console.log(rows);
+    //
+    //         let menu = new Menu('my', 'my');
+    //         console.log(menu);
+    //
+    //         for (let i = 0; i < column; i++){
+    //             menu.items[i] = new MenuItem (`${data.MenuItems.link[i][0].title}`)
+    //         }
+    //         console.log(menu);
+    //
+    //     }
+    //
+    //     getDataAW();
+    // }
 </script>
 </body>
 </html>

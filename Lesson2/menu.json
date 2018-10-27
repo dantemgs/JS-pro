@@ -1,4 +1,80 @@
 {
-  "tel": "+7(999)111-22-33",
-  "title": "Some title"
+  "Menu": {
+    "id": "menu",
+    "class": "menu"
+  },
+  "SubMenu": {
+    "id": "sub-menu",
+    "class": "sub-menu",
+    "idList": "menu__list",
+    "classList": "menu__list",
+    "idLink": "menu__link",
+    "classLink": "menu__link",
+    "link": [
+      {
+        "title": "Фрукты",
+        "href": "#"
+      },
+      {
+        "title": "Овощи",
+        "href": "#"
+      },
+      {
+        "title": "Мясо",
+        "href": "#"
+      }
+    ]
+  },
+  "MenuItems": {
+    "id": "sub-menu",
+    "class": "sub-menu",
+    "idList": "sub-menu__list",
+    "classList": "sub-menu__list",
+    "idLink": "sub-menu__link",
+    "classLink": "sub-menu__link",
+    "link": [
+      [
+        {
+          "title": "Яблоки",
+          "href": "#"
+        },
+        {
+          "title": "Груши",
+          "href": "#"
+        },
+        {
+          "title": "Бананы",
+          "href": "#"
+        }
+      ],
+      [
+        {
+          "title": "Картошка",
+          "href": "#"
+        },
+        {
+          "title": "Капуста",
+          "href": "#"
+        },
+        {
+          "title": "Помидоры",
+          "href": "#"
+        }
+      ],
+      [
+        {
+          "title": "Птица",
+          "href": "#"
+        },
+        {
+          "title": "Свинина",
+          "href": "#"
+        },
+        {
+          "title": "Говядина",
+          "href": "#"
+        }
+      ]
+    ]
+  }
 }
