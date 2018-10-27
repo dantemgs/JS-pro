@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-color: rgba(218, 218, 218, 0.42); }
+
+.navigator {
+  max-width: 600px;
+  margin: 50px auto; }
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: wrap; }
+
+.menu__list {
+  list-style-type: none;
+  position: relative;
+  padding: 15px;
+  margin-bottom: 60px; }
+
+.menu__list:hover .sub-menu {
+  display: block; }
+
+.menu__link {
+  text-decoration: none;
+  padding: 10px;
+  font-size: 20px;
+  border: 2px solid #f99292;
+  color: red;
+  border-radius: 40px;
+  -webkit-transition: color 0.3s, background-color 0.3s, border 0.3s;
+  -moz-transition: color 0.3s, background-color 0.3s, border 0.3s;
+  -o-transition: color 0.3s, background-color 0.3s, border 0.3s; }
+
+.menu__link:hover {
+  background-color: #f99292;
+  border: 2px solid transparent;
+  color: white; }
+
+.sub-menu {
+  display: none;
+  width: 300px;
+  position: absolute;
+  left: 22px;
+  top: 33px;
+  margin-top: 20px;
+  z-index: 2; }
+
+.sub-menu__list {
+  list-style-type: none; }
+
+.sub-menu__link {
+  padding: 5px;
+  text-decoration: none;
+  color: red;
+  border-radius: 40px;
+  -webkit-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -o-transition: color 0.3s; }
+
+.sub-menu__link:hover {
+  color: black; }
+
+/*# sourceMappingURL=style.css.map */

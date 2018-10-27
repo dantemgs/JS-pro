@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let userJson = '{"name": "Anna", "age": 25, "isAdmin": true, "dateToday": "2018-10-25"}';
+
+    console.log(userJson);
+
+    let user = JSON.parse(userJson, (key, value) => {
+        console.log(key, value);
+        if (key === 'dateToday'){
+            value = new Date(value)
+        }
+        return value;
+    });
+    console.log(user);
+    console.log(user.name, user.age);
+
+    user.address = {
+        city: 'Saint Petersburg',
+        postalCode: '9999999'
+    };
+    console.log(user);
+
+    let jsonUser = JSON.stringify(user, ['name', 'address', 'city', 'postalCode'], 4);
+    console.log(jsonUser);
+
+    // google.com some.php?name=Ann&pass=1234
+    // POST - данные отправляются HTTP
+
+
+
+
+</script>
+</body>
+</html>
