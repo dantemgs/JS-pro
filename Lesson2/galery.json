@@ -1,0 +1,67 @@
+{
+  "container": {
+    "id": "galleryPreviewsContainer",
+    "class": "galleryPreviewsContainer"
+  },
+  "image1": {
+    "min": "images/min/1.jpg",
+    "max": "images/max/1.jpg",
+    "alt": "image1",
+    "dataClass": "previews"
+  },
+  "image2": {
+    "min": "images/min/2.jpg",
+    "max": "images/max/2.jpg",
+    "alt": "image2",
+    "dataClass": "previews"
+  },
+  "image3": {
+    "min": "images/min/3.jpg",
+    "max": "images/max/3.jpg",
+    "alt": "image3",
+    "dataClass": "previews"
+  },
+  "image4": {
+    "min": "images/min/4.jpg",
+    "max": "images/max/4.jpg",
+    "alt": "image4",
+    "dataClass": "previews"
+  },
+  "wrapper": {
+    "id": "galleryWrapper",
+    "class": "galleryWrapper"
+  },
+  "wrapper__screen": {
+    "tag": "DIV",
+    "id": "galleryWrapper__screen",
+    "class": "galleryWrapper__screen"
+  },
+  "wrapper__close": {
+    "tag": "IMG",
+    "id": "galleryWrapper__close",
+    "class": "galleryWrapper__close",
+    "src": "images/gallery/close.png",
+    "alt": "close"
+  },
+  "nextArrow": {
+    "tag": "IMG",
+    "id": "galleryWrapper__next",
+    "class": "galleryWrapper__next",
+    "src": "images/gallery/next.png",
+    "alt": "next"
+  },
+  "backArrow": {
+    "tag": "IMG",
+    "id": "galleryWrapper__back",
+    "class": "galleryWrapper__back",
+    "src": "images/gallery/back.png",
+    "alt": "back"
+  },
+  "wrapper__image": {
+    "tag": "IMG",
+    "id": "galleryWrapper__image",
+    "class": "galleryWrapper__image",
+    "alt": "imageWrapper",
+    "dataClass": "previews"
+  }
+}

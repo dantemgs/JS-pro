@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navigator">
+    <!--
+    <ul class="menu">
+        <li class="menu__list">
+            <a class="menu__link" href="#">личный кабинет</a>
+            <ul class="sub-menu">
+                <li class="sub-menu__list"><a class="sub-menu__link" href="#">личный кабинет</a></li>
+                <li class="sub-menu__list"><a class="sub-menu__link" href="#">каталог</a></li>
+                <li class="sub-menu__list"><a class="sub-menu__link" href="#">промоакции</a></li>
+            </ul>
+        </li>
+        <li class="menu__list">
+            <a class="menu__link" href="#">каталог</a>
+        </li>
+        <li class="menu__list">
+            <a class="menu__link" href="#">промоакции</a>
+        </li>
+    </ul>
+    -->
+</nav>
+<script src="MenuItem.js"></script>
+<script src="Menu.js"></script>
+<script src="SubMenu.js"></script>
+<script>
+    window.onload = () => {
+        let block = document.querySelector('.navigator');
+
+        let menu = new Menu('menu', 'menu', [
+            new SubMenu("sub-menu", "sub-menu", "menu__list", "menu__list", "menu__link", "menu__link", "#", 'личный кабинет', [
+                new MenuItem('sub-menu__list', 'sub-menu__list', 'sub-menu__link', 'sub-menu__link', '#', 'личный кабинет'),
+                new MenuItem('sub-menu__list', 'sub-menu__list', 'sub-menu__link', 'sub-menu__link', '#', 'каталог'),
+                new MenuItem('sub-menu__list', 'sub-menu__list', 'sub-menu__link', 'sub-menu__link', '#', 'промоакции'),
+            ]),
+            new SubMenu("sub-menu", "sub-menu", "menu__list", "menu__list", "menu__link", "menu__link", "#", 'каталог', [
+                new MenuItem('sub-menu__list', 'sub-menu__list', 'sub-menu__link', 'sub-menu__link', '#', 'личный кабинет'),
+                new MenuItem('sub-menu__list', 'sub-menu__list', 'sub-menu__link', 'sub-menu__link', '#', 'каталог'),
+                new MenuItem('sub-menu__list', 'sub-menu__list', 'sub-menu__link', 'sub-menu__link', '#', 'промоакции'),
+            ]),
+            new SubMenu("sub-menu", "sub-menu", "menu__list", "menu__list", "menu__link", "menu__link", "#", 'промоакции', [
+                new MenuItem('sub-menu__list', 'sub-menu__list', 'sub-menu__link', 'sub-menu__link', '#', 'личный кабинет'),
+                new MenuItem('sub-menu__list', 'sub-menu__list', 'sub-menu__link', 'sub-menu__link', '#', 'каталог'),
+                new MenuItem('sub-menu__list', 'sub-menu__list', 'sub-menu__link', 'sub-menu__link', '#', 'промоакции'),
+            ]),
+
+        ]);
+        console.log(menu);
+        block.innerHTML = menu.render();
+    }
+
+    // window.onload = () => {
+    //     let block = document.querySelector('navigator');
+    //
+    //     let getData = new Promise((resolve, reject) => {
+    //         fetch('menu.json')
+    //             .then(result => result.json())
+    //             .then(data => resolve(data));
+    //     });
+    //
+    //     async function getDataAW() {
+    //         let data = await getData;
+    //         console.log(data);
+    //
+    //         let column = data.SubMenu.link.length;
+    //         let rows = data.MenuItems.link.length;
+    //         console.log(column);
+    //         console.log(rows);
+    //
+    //         let menu = new Menu('my', 'my');
+    //         console.log(menu);
+    //
+    //         for (let i = 0; i < column; i++){
+    //             menu.items[i] = new MenuItem (`${data.MenuItems.link[i][0].title}`)
+    //         }
+    //         console.log(menu);
+    //
+    //     }
+    //
+    //     getDataAW();
+    // }
+</script>
+</body>
+</html>

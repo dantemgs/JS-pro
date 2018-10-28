@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="data"></div>
+<button id="get-json">Async get data</button>
+<script>
+    // window.onload = () => {
+    //     document.getElementById('get-json').addEventListener('click', () =>{
+    //         //ES5
+    //
+    //        // let xhr = new XMLHttpRequest();
+    //        // xhr.open('GET', 'tel.json', true); //true - асинхронный запрос
+    //        //
+    //        // xhr.onreadystatechange = () => {
+    //        //     console.log(xhr.readyState);
+    //        //     // 0 - запрос не инициализирован
+    //        //     // 1 - загрузка данных на сервер
+    //        //     // 2 - запрос принят сервером
+    //        //     // 3 - идет обмен данными
+    //        //     // 4 - запрос выполнен
+    //        //
+    //        //     if (xhr.readyState !== 4){
+    //        //         return;
+    //        //     }
+    //        //
+    //        //     if (xhr.status !== 200){
+    //        //         console.log('Ошибка в процессе получения данных', xhr.status, xhr.statusText);
+    //        //     } else {
+    //        //         console.log('ok', xhr.responseText);
+    //        //         let dataObj = JSON.parse(xhr.responseText);
+    //        //         let block = document.getElementById('data');
+    //        //         block.innerHTML = `Телефон ${dataObj.tel} (${dataObj.title})`;
+    //        //     }
+    //        // };
+    //        // xhr.send();
+    //
+    //         //ES6
+    //         let block = document.getElementById('data');
+    //
+    //         fetch('tel.json')
+    //             .then(result => {
+    //                 console.log(result);
+    //                 return result.json()
+    //             })
+    //             .then(data => {
+    //                     resolve(data);
+    //                 console.log(data);
+    //                 block.innerHTML = `Телефон ${data.tel} (${data.title})`;
+    //             })
+    //             .catch(error => {
+    //                     reject(error);
+    //                 console.log(error);
+    //             });
+    //
+    //     });
+    // }
+
+    // Promise
+
+    let getData = new Promise((resolve, reject) => {
+        // fetch('userId.json')
+        //     .then(result => result.json())
+        //     .then(data => resolve(data));
+        setTimeout(() => {
+            resolve([234, 437, 765]);
+        }, 1500);
+        // reject(error);
+    });
+    let getJob = userID => {
+        return new Promise((resolve, reject) => {
+            setTimeout(ID => {
+                let userData = {
+                    name: 'John',
+                    job: 'full-stack developer'
+                };
+                resolve(`User with ${ID} is ${userData.job}`);
+            }, 1500, userID)
+        })
+    };
+
+    // Стандарт
+    // getData
+    //     .then(ID => {
+    //         console.log(ID);
+    //         return getJob(ID[1]);
+    //     })
+    //     .then(job => console.log(job));
+
+    //Новый es7 || es8
+
+    async function getJobAW() {
+        let IDs = await getData;
+        console.log(IDs);
+        let job = await getJob(IDs[2]);
+        console.log(job);
+        return job;
+    }
+    let a = getJobAW();
+    console.log(a);
+
+</script>
+</body>
+</html>
