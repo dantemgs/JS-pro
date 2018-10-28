@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form" action="#">
+    <input id="text" type="text">
+    <label id="label" for="text">Введите текст</label>
+    <input id="submit" type="submit">
+</form>
+<script>
+    window.onload = () => {
+        let submit = document.getElementById('submit');
+        submit.addEventListener('click', (event) => {
+            if (event.target.id !== 'submit') {
+                return;
+            }
+
+            let str = document.getElementById('text').value;
+            let choice = null;
+
+            if (str === '') {
+                choice = 'error.json';
+            } else {
+                choice = 'success.json';
+            }
+            let getData = new Promise((resolve, reject) => {
+                fetch(choice)
+                    .then(result => result.json())
+                    .then(data => resolve(data));
+            });
+
+            async function getDataAW() {
+                let answer = await getData;
+                console.log(answer );
+
+                let labelText = document.getElementById('label');
+                labelText.innerText = answer.result;
+            }
+            getDataAW();
+
+        })
+    }
+</script>
+</body>
+</html>
