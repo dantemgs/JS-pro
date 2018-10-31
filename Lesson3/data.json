@@ -1,0 +1,38 @@
+[
+  {
+    "label": {
+      "text": "Name"
+    },
+    "input": {
+      "id": "name",
+      "placeholder": "name"
+    }
+  },
+  {
+    "label": {
+      "text": "Phone"
+    },
+    "input": {
+      "id": "phone",
+      "placeholder": "phone"
+    }
+  },
+  {
+    "label": {
+      "text": "Email"
+    },
+    "input": {
+      "id": "email",
+      "placeholder": "email"
+    }
+  },
+  {
+    "label": {
+      "text": "Text"
+    },
+    "input": {
+      "id": "text",
+      "placeholder": "text"
+    }
+  }
+]
