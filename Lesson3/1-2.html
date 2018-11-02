@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="ReplaceText.js"></script>
+<script>
+    window.onload = () => {
+        let regExp1 = {
+            search: /'/g,
+            replacement: '\'\'',
+        };
+
+        let regExp2 = {
+            search: /\b''\b/g,
+            replacement: '\'',
+        };
+
+        let replace = new ReplaceText('texttoreplace.txt', regExp1);
+        setTimeout(() => {
+            replace.getNextReplaceText(replace.finalText, regExp2)
+        }, 1000);
+
+        // let replace = new Promise((resolve, reject) => {
+        //     resolve (new ReplaceText('texttoreplace.txt', regExp1));
+        // });
+        //
+        // async function AW(){
+        //     let a = await replace;
+        //     console.log(a.finalText);
+        // }
+        //
+        // AW();
+    }
+</script>
+</body>
+</html>
