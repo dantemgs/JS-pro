@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+<div class="containerHorizontal">
+    <ul class="horizontal-menu">
+        <li class="horizontal-menu__list cursor">Первая вкладка</li>
+        <li class="horizontal-menu__list cursor">Вторая вкладка</li>
+        <li class="horizontal-menu__list cursor">Третья вкладка</li>
+        <li class="horizontal-menu__list cursor">Четвертая вкладка</li>
+    </ul>
+    <div class="horizontal-text">Lorem ipsum dolor sit amet.</div>
+</div>
+<div class="containerVertical">
+    <div>
+        <ul class="vertical-menu">
+            <li class="vertical-menu__list cursor">Первая вкладка</li>
+            <li class="vertical-menu__list cursor">Вторая вкладка</li>
+            <li class="vertical-menu__list cursor">Третья вкладка</li>
+            <li class="vertical-menu__list cursor">Четвертая вкладка</li>
+        </ul>
+    </div>
+    <div class="vertical-text">Lorem ipsum dolor sit amet.</div>
+</div>
+<script src="jquery.min.js"></script>
+<script src="MenuTab.js"></script>
+<script>
+    (function ($) {
+        $(document).ready(() => {
+            "use strict";
+
+            let horizontalMenu = new MenuTab('horizontal');
+            let verticalMenu = new MenuTab('vertical');
+        });
+    })(jQuery);
+</script>
+</body>
+</html>

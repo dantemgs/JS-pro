@@ -1,0 +1,103 @@
+$widh: 800px
+$background-color: green
+$color: white
+$hover-background-color: #8BC34A
+$selected_color: black
+
+%menu
+  list-style-type: none
+  display: flex
+  position: relative
+
+%menu__list
+  padding: 15px 5px
+  border-top-left-radius: 7px
+  background-color: $background-color
+  border: 2px solid $background-color
+  color: $color
+
+%menu__list_selected
+  padding: 15px 5px
+  border-top-left-radius: 7px
+  background-color: white
+  color: $selected_color
+  border: 2px solid $hover-background-color
+  z-index: 2
+  position: relative
+
+%menu__list:hover
+  background-color: $hover-background-color
+  border: 2px solid $hover-background-color
+
+%text
+  font-size: 1.2em
+  padding: 5px
+  border: 2px solid $hover-background-color
+  border-radius: 7px
+  border-top-left-radius: 0
+
+*
+  margin: 0
+  padding: 0
+
+.containerHorizontal
+  width: $widh
+  margin: 60px auto
+
+.horizontal-menu
+  @extend %menu
+  width: $widh
+  justify-content: start
+
+.horizontal-menu__list
+  @extend %menu__list
+  margin-right: 3px
+  border-top-right-radius: 7px
+  border-bottom: none
+
+.horizontal-menu__list_selected
+  @extend %menu__list_selected
+  margin-right: 3px
+  border-top-right-radius: 7px
+  border-bottom: none
+  top: 2px
+
+.horizontal-menu__list:hover
+  @extend %menu__list:hover
+  border-bottom: none
+
+.horizontal-text
+  @extend %text
+
+.cursor
+  cursor: pointer
+
+.vertical-menu
+  @extend %menu
+  min-width: 160px
+  flex-flow: column
+
+.containerVertical
+  width: $widh
+  margin: 60px auto
+  display: flex
+
+.vertical-menu__list
+  @extend %menu__list
+  margin-bottom: 3px
+  border-bottom-left-radius: 7px
+  border-right: none
+
+.vertical-menu__list_selected
+  @extend %menu__list_selected
+  margin-bottom: 3px
+  border-bottom-left-radius: 7px
+  border-right: none
+  left: 2.5px
+
+.vertical-menu__list:hover
+  @extend %menu__list:hover
+
+.vertical-text
+  @extend %text
+
