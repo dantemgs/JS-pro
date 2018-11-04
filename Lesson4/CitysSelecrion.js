@@ -1,4 +1,4 @@
-class CitySelection {
+class CitysSelection {
     constructor(id, wrapper) {
         this.id = id;
         this.wrapper = wrapper;
@@ -44,8 +44,8 @@ class CitySelection {
 
     _removeVisible() {
         if ($(this.wrapper).hasClass('visible')) {
-                $(this.wrapper).removeClass('visible');
-            }
+            $(this.wrapper).removeClass('visible');
+        }
     }
 
     _search() {
