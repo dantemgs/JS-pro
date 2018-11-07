@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #cart{
+            max-width: 300px;
+        }
+        .cart-items-wrap{
+            margin: 20px 0;
+        }
+        .cart-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            padding: 10px 0;
+        }
+        .cart-item:not(:first-child){
+            border-top: 1px solid #000;
+        }
+        .product-quantity{
+            text-align: center;
+        }
+        .product-price{
+            text-align: right;
+        }
+        .cart-summary{
+            text-align: right;
+        }
+        .close {
+            text-align: center;
+            color: #ff00007d;
+            -o-transition: color 0.3s;
+            -moz-transition: color 0.3s;
+            -webkit-transition: color 0.3s;
+        }
+        .close:hover {
+            text-align: center;
+            color: #ff0000c7;
+            cursor: pointer;
+        }
+        #products{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        p{
+            margin: 0 0 5px 0;
+        }
+        .product{
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border-radius: 5px;
+            width: 200px;
+        }
+        .desc{
+            padding: 15px;
+            border: 1px solid #c0c0c040;
+        }
+    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+<div id="cart"></div>
+<hr>
+<div id="products"></div>
+<script src="jquery-3.3.1.js"></script>
+<script src="Product.js"></script>
+<script src="Cart.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

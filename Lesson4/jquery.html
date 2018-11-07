@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .orange {
+            background: orange;
+            color: white;
+        }
+        .strong{
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+<p id="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et explicabo itaque nesciunt quibusdam repellendus? Dicta
+    error et illum inventore libero, magni modi mollitia, nobis omnis perspiciatis quas repudiandae rerum voluptate.</p>
+<p class="text">Aspernatur beatae dolorem fugit id magni, officiis, optio, quae quidem quis ratione repudiandae vitae. Architecto
+    aspernatur doloribus explicabo in inventore nobis, odio officia officiis placeat quod saepe soluta tempora ut.</p>
+<p>A cumque debitis dolorum, eligendi iure libero mollitia quae reiciendis rem soluta totam veritatis. Adipisci alias
+    aperiam asperiores deserunt dignissimos dolorem eos excepturi, id minima, nemo nihil nulla placeat quidem!</p>
+<p class="text">Ab accusantium aperiam atque aut, deleniti dolores, error est eum excepturi illum itaque laboriosam laborum
+    laudantium, maxime minima necessitatibus nobis officia quas qui quia quibusdam quos sed velit vitae voluptas.</p>
+<p>Amet esse quisquam unde. A, architecto asperiores, distinctio dolores doloribus ducimus eos, in nostrum optio
+    praesentium tempora ut vero voluptatum! Fuga impedit magnam maiores maxime perferendis possimus quibusdam quo.
+    Ratione!</p>
+<p class="text">Accusamus accusantium aliquid blanditiis culpa cupiditate eaque error et ex fugit incidunt ipsa ipsum labore laborum,
+    maiores molestias nam necessitatibus pariatur placeat quibusdam quos rem, similique, soluta unde veritatis
+    voluptatum!</p>
+<p>Asperiores, commodi corporis est et illum nostrum provident reiciendis totam! Deleniti doloremque facilis fuga
+    incidunt iusto magni, minima modi odio officia tempore vero voluptates! Id molestias officia quam quibusdam
+    sunt!</p>
+<hr>
+<div class="data">
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad animi autem consectetur cum doloribus laboriosam maxime, neque numquam obcaecati, odio ratione sunt veritatis vitae? Enim in nemo perspiciatis quam repudiandae.</span><span>Adipisci dicta dolor itaque rem. Accusantium, aliquid amet corporis cum doloremque doloribus, et id labore quaerat repudiandae sit vel? Aliquam earum fuga, iure maiores nostrum perspiciatis quaerat repudiandae sequi veniam?</span>
+    </p>
+</div>
+<button class="open">Open</button>
+<button class="close">Close</button>
+<button class="toggle">Toggle</button>
+<br><br><br><br><br><br><br><br><br><br>
+<hr>
+<div id="data"></div>
+<button id="getdata">Get data</button>
+<hr>
+<input type="text" class="phone">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<script src="jquery.min.js"></script>
+<script src="jquery.mask.min.js"></script>
+<script>
+
+    // window.onload
+    // Вариант 2
+    // $(() => {
+    //
+    // });
+
+    //IIFE
+    // (function($) {
+    //     $(() => {
+    //
+    //     });
+    // })(jQuery);
+
+
+
+    $(document).ready(() => {
+        $('p').addClass('orange');
+        // $('#text').css('color', 'red');
+        $('#text').css({
+            color: 'red',
+            fontSize: '2em'
+        });
+
+        $('p').eq(2).addClass('strong');
+        //Более метод
+        $('p:eq(3)').addClass('strong');
+        // $('p:last').addClass('strong');
+        // $('p:first').addClass('strong');
+
+        //Перебор элементов
+        $('p').each((index, item) => {
+            console.log(index, item);
+            // item.classList.add('bg'); - не очень правильно
+            $(item).addClass('bg');
+        });
+
+        //Работа с событиями
+
+        let $block = $('.data');
+        let $btnOpen = $('.open');
+        let $btnClose = $('.close');
+        let $btnToggle = $('.toggle');
+
+        // $wrapper.on('click', '.img-some', func)
+
+        $btnOpen.on('click', () => {
+           // $block.show();
+           // $block.slideDown(3000);
+            $block.fadeIn(3000);
+        });
+        $btnClose.on('click', () => {
+            // $block.hide();
+            // $block.slideUp(3000);
+            $block.fadeOut(3000);
+        });
+        $btnToggle.on('click', () => {
+            // $block.toggle();
+            // $block.slideToggle(3000);
+            $block.fadeToggle(3000);
+        });
+
+        //AJAX
+
+        let $ajaxData = $('#data');
+        let $ajaxBtn = $('#getdata');
+
+        $ajaxBtn.on('click', () => {
+            $.ajax({
+                url: 'user.json',
+                type: 'GET',
+                // async: false - синхронный запрос
+                dataType: 'json',
+                success: (data) => {
+                    for (let user of data){
+                        let $user = $(`<p>${user.name} - <strong>${user.tel}</strong></p>`);
+                        $ajaxData.append($user);
+                    }
+                },
+                error: (error) => {
+                    console.log(error);
+                }
+            })
+        });
+
+        // Маскирование
+
+        $('.phone').mask('+7 (000) 000-00-00');
+
+    });
+
+</script>
+</body>
+</html>
