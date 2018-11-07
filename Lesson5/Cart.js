@@ -30,6 +30,7 @@ class Cart {
         $container.append($(`<p class="product-name">${product.product_name}</p>`));
         $container.append($(`<p class="product-quantity">${product.quantity}</p>`));
         $container.append($(`<p class="product-price">${product.price} руб.</p>`));
+        $container.append($(`<i class="far fa-times-circle close"></i>`));
         $container.appendTo($('.cart-items-wrap'));
     }
     _renderSum(){
@@ -66,8 +67,8 @@ class Cart {
         } else {
             let product = {
                 id_product: productId,
-                price: +$(element).data('price'),
                 product_name: $(element).data('name'),
+                price: +$(element).data('price'),
                 quantity: 1
             };
             this.cartItems.push(product);
@@ -77,7 +78,21 @@ class Cart {
         }
         this._renderSum();
     }
-    remove(idProduct){
-        //TODO: удаление товара из корзины
+    remove(element){
+        let productId = +element.parentElement.dataset.product;
+        let find = this.cartItems.find(product => product.id_product === productId);
+        find.quantity--;
+        this.countGoods--;
+        this.amount -= find.price;
+        this._updateCart(find);
+
+        if (!find.quantity) {
+            element.parentNode.remove();
+
+            let key = this.cartItems.indexOf(find);
+            this.cartItems.splice(key,1);
+        }
+        this._renderSum();
+        console.log(find);
     }
 }

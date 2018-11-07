@@ -10,5 +10,9 @@ $(document).ready(() => {
     //Добавление товара
     $('#products').on('click', '.buyBtn', e => {
         mycart.addProduct(e.target);
-    })
+    });
+
+    $('#cart').on('click', '.close', e => {
+        mycart.remove(e.target);
+    });
 });
